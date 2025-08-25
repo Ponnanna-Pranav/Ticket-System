@@ -1,0 +1,29 @@
+server:
+  port: 8080
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/ticketing
+    username: ticket
+    password: ticket
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate.jdbc.time_zone: UTC
+      hibernate.format_sql: true
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+  mail:
+    host: localhost
+    port: 1025
+    properties:
+      mail.smtp.auth: false
+      mail.smtp.starttls.enable: false
+jwt:
+  issuer: ticketing-app
+  accessTtlMinutes: 60
+  refreshTtlDays: 7
+  secret: change-me-please-and-keep-long
+storage:
+  localRoot: ./storage
